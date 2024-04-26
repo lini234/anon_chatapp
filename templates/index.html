@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Forum</title>
+</head>
+<body>
+    <h1>Welcome to the Chat Forum!</h1>
+
+    <h2>Post a Message:</h2>
+    <form action="/post_message" method="post">
+        <textarea name="message" rows="4" cols="50" placeholder="Type your message here..."></textarea><br>
+        <input type="submit" value="Post">
+    </form>
+
+    <h2>Messages:</h2>
+    <ul>
+        {% for user_id, user_messages in messages.items() %}
+            <li>User {{ user_id }}:</li>
+            <ul>
+                {% for message in user_messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+</body>
+</html>
